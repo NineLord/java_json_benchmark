@@ -22,13 +22,13 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         //#region Test input
-        final int testCounter = 5;
+        final int testCounter = Integer.parseInt(args[1]);
         @NotNull final PcUsageExporter pcUsageExporter = new PcUsageExporter();
-        @NotNull final String jsonPath = "/PATH/TO/Input/hugeJson_numberOfLetters8_depth10_children5.json";
-        final int numberOfLetters = 8;
-        final int depth = 10;
-        final int numberOfChildren = 5;
-        final int samplingInterval = 10;
+        @NotNull final String jsonPath = args[0];
+        final int numberOfLetters = Integer.parseInt(args[3]);
+        final int depth = Integer.parseInt(args[4]);
+        final int numberOfChildren = Integer.parseInt(args[5]);
+        final int samplingInterval = Integer.parseInt(args[6]);
         //#endregion
 
         //#region Getting ready for testing
@@ -40,7 +40,7 @@ public class Main {
 
         //#region Testing
         try (@NotNull final ExcelGenerator excelGenerator = new ExcelGenerator(
-                "/PATH/TO/report2.xlsx",
+                args[2],
                 jsonPath,
                 samplingInterval,
                 numberOfLetters,
